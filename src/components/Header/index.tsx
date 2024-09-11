@@ -14,6 +14,7 @@ import {
 } from "@chakra-ui/react";
 import React from "react";
 import HeaderMenu from "../HeaderMenu";
+import { useRouter } from "next/router";
 
 interface HeaderProps {
   setPage: string;
@@ -21,6 +22,11 @@ interface HeaderProps {
 
 function Header({ setPage }: HeaderProps) {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const router = useRouter(); // useRouter-i əlavə edirik
+
+  const handleNavigation = (path: string) => {
+    router.push(path); // path-a yönləndirir
+  };
 
   return (
     <>
@@ -33,7 +39,7 @@ function Header({ setPage }: HeaderProps) {
         h="100px"
         maxW="1223px"
         m="auto"
-        px={{ base: "20px", md: "0px" }} // Mobile için yatay padding ekledik
+        px={{ base: "20px", md: "0px" }} // Mobile üçün yatay padding
       >
         <Image src="./imgs/logo.png" w="200px" />
 
@@ -64,6 +70,7 @@ function Header({ setPage }: HeaderProps) {
             bgColor="#FB9C46"
             color="#FFFFFF"
             _hover={{ bgColor: "#fbaf45" }}
+            onClick={() => handleNavigation("/signup")} // Router ilə yönləndirmə
           >
             Sign Up
           </Button>
@@ -75,6 +82,7 @@ function Header({ setPage }: HeaderProps) {
             bgColor="#407F55"
             color="#FFFFFF"
             _hover={{ bgColor: "#0f5c45" }}
+            onClick={() => handleNavigation("/login")} // Router ilə yönləndirmə
           >
             Login
           </Button>
@@ -84,13 +92,13 @@ function Header({ setPage }: HeaderProps) {
       {/* Gray line */}
       <Box
         className="border"
-        w={{ base: "100%", md: "1223px" }} // Full width on mobile, fixed width on desktop
+        w={{ base: "100%", md: "1223px" }} // Mobil üçün tam genişlik
         h="1px"
         m="auto"
         bgColor="#C4C4C4"
         opacity="60%"
         borderRadius="1px"
-        display={{ base: "block", md: "block" }} // Ensure it's only visible in mobile view
+        display={{ base: "block", md: "block" }} 
       ></Box>
 
       {/* Drawer for Mobile Menu */}
@@ -109,7 +117,7 @@ function Header({ setPage }: HeaderProps) {
               <Text
                 fontSize="18px"
                 fontWeight="bold"
-                onClick={onClose}
+                onClick={() => handleNavigation("/")}
                 cursor="pointer"
               >
                 Home
@@ -117,7 +125,7 @@ function Header({ setPage }: HeaderProps) {
               <Text
                 fontSize="18px"
                 fontWeight="bold"
-                onClick={onClose}
+                onClick={() => handleNavigation("/about")}
                 cursor="pointer"
               >
                 About
@@ -125,7 +133,7 @@ function Header({ setPage }: HeaderProps) {
               <Text
                 fontSize="18px"
                 fontWeight="bold"
-                onClick={onClose}
+                onClick={() => handleNavigation("/services")}
                 cursor="pointer"
               >
                 Services
@@ -133,7 +141,7 @@ function Header({ setPage }: HeaderProps) {
               <Text
                 fontSize="18px"
                 fontWeight="bold"
-                onClick={onClose}
+                onClick={() => handleNavigation("/contact")}
                 cursor="pointer"
               >
                 Contact
@@ -147,3 +155,4 @@ function Header({ setPage }: HeaderProps) {
 }
 
 export default Header;
+ 

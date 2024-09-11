@@ -10,6 +10,7 @@ import FivethSection from "@/src/components/FivethSectionHome";
 import SixthSection from "@/src/components/SixthSectionHome";
 import SeventhSection from "@/src/components/SeventhSectionHome";
 
+
 function HomePage() {
   return (
     <>

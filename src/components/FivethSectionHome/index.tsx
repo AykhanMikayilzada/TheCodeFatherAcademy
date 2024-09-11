@@ -114,15 +114,17 @@ function FivethSection() {
         h={{base:"auto", md:"none"}}
         m={{base: "auto", md:"none"}}
       >
-        <Image src="./imgs/videoExample.svg" mt="80px" />
+        <Image src="./imgs/videoExample.svg" mt="80px" pos="absolute" right={{base: "none", md:"0"}} />
         <Image
           src="./imgs/vector.svg"
           pos="absolute"
           right={{ base: "-90px", md: "-5" }} // Telefon ve tabletlerde hizalama
-          bottom={{base: "-25px", md:"-10"}}
+          bottom={{base: "-25px", md:"none"}}
+          top={{base:"250px", md:"320px"}}
           left={{ base: "none", md: "auto" }} // Telefon ve tabletlerde hizalama
           transform={{ base: "translateX(-50%)", md: "none" }} // Telefon ve tabletlerde merkezleme
           w={{base:"162px", md:"auto"}}
+          zIndex="2"
         />
       </Box>
     </Box>

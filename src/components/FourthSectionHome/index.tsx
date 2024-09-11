@@ -33,7 +33,7 @@ function FourthSection() {
           <Image
             src="./imgs/thirdSectionImg.svg"
             pos="absolute"
-            bottom={{ base: "0px", md: "0" }} // Telefon ve tabletlerde boyut uyarlaması
+            bottom={{ base: "0px", md: "10" }} // Telefon ve tabletlerde boyut uyarlaması
             left={{ base: "45px", md: "0px" }} // Telefon ve tabletlerde boyut uyarlaması
             zIndex="1"
             w={{ base: "350px", md: "initial" }} // Telefon ve tabletlerde boyut uyarlaması
